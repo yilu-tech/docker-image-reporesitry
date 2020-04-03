@@ -1,6 +1,6 @@
 FROM yilutech/cloud9:ubuntu
 
-COPY nginx-logrotate /root/nginx-logrotate
+COPY openresty/nginx-logrotate /root/nginx-logrotate
 
 RUN apt-get update \
  && apt-get install -y wget gnupg2 \
