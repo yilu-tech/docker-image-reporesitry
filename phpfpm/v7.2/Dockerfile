@@ -1,6 +1,7 @@
 FROM yilutech/cloud9
 
 COPY .bash_profile fpm-logrotate /root/
+COPY startup.json /startup.json
 
 RUN addgroup -g 82 -S www-data \
  && adduser -u 82 -D -S -G www-data www-data \
