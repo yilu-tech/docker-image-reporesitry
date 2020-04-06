@@ -1,7 +1,7 @@
 FROM yilutech/cloud9
 
-COPY .bash_profile fpm-logrotate /root/
-COPY startup.json /startup.json
+COPY phpfpm/v7.2/.bash_profile phpfpm/v7.2/fpm-logrotate /root/
+COPY phpfpm/v7.2/startup.json /startup.json
 
 RUN addgroup -g 82 -S www-data \
  && adduser -u 82 -D -S -G www-data www-data \
