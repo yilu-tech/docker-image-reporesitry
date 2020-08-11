@@ -17,6 +17,5 @@ ENV PATH=$PATH:/opt/node-${NODE_VERSION}/bin
 RUN git clone https://github.com/c9/core.git /cloud9 \
  && /cloud9/scripts/install-sdk.sh \
  && sed -i "s|127.0.0.1|0.0.0.0|g" /cloud9/configs/standalone.js \
- && source $NVM_DIR/nvm.sh \
  && rm -rf /cloud9/.git
 
