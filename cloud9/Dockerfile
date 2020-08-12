@@ -9,10 +9,10 @@ RUN apt-get update \
  && cd /opt \
  && wget https://nodejs.org/dist/${C9_NODE_VERSION}/node-${C9_NODE_VERSION}-linux-x64.tar.xz \
  && tar xf node-${C9_NODE_VERSION}-linux-x64.tar.xz \
- && mv node-${C9_NODE_VERSION}-linux-x64 node-${C9_NODE_VERSION}
+ && mv node-${C9_NODE_VERSION}-linux-x64 node-v6
 
 ENV PATH_ORIGIN=$PATH
-ENV PATH=$PATH:/opt/node-${C9_NODE_VERSION}/bin
+ENV PATH=$PATH:/opt/node-v6/bin
 
 RUN git clone https://github.com/c9/core.git --depth=1 /cloud9 \
  && /cloud9/scripts/install-sdk.sh \
@@ -22,15 +22,15 @@ FROM yilutech/ubuntu
 
 COPY --from=buildc9 /root/.c9 /root/
 COPY --from=buildc9 /cloud9 /
-COPY --from=buildc9 /opt/node-${C9_NODE_VERSION} /opt/
+COPY --from=buildc9 /opt/node-v6 /opt/
 
 ENV NODE_VERSION=v12.18.3
 
 RUN wget https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz \
  && tar xf node-${NODE_VERSION}-linux-x64.tar.xz \
- && mv node-${NODE_VERSION}-linux-x64 node-${NODE_VERSION} \
+ && mv node-${NODE_VERSION}-linux-x64 node-v12 \
  && rm node-${NODE_VERSION}-linux-x64.tar.xz
 
-ENV PATH=$PATH_ORIGIN:/opt/node-{NODE_VERSION}/bin
+ENV PATH=$PATH_ORIGIN:/opt/node-v12/bin
 
 RUN npm install -g pm2
