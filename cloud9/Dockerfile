@@ -20,12 +20,6 @@ COPY --from=buildc9 /root/.c9 /root/.c9
 COPY --from=buildc9 /cloud9 /cloud9
 COPY --from=buildc9 /opt/node-v6 /opt/node-v6
 
-ENV NODE_VERSION=v12.18.3
-ENV PATH=$PATH:/opt/node-v12/bin
-
-RUN cd /opt \
- && wget https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz -q \
- && tar xf node-${NODE_VERSION}-linux-x64.tar.xz \
- && mv node-${NODE_VERSION}-linux-x64 node-v12 \
- && rm node-${NODE_VERSION}-linux-x64.tar.xz \
- && npm install -g pm2
+ENV NODE_VERSION=v6.16.0
+ENV PATH=$PATH:/opt/node-v6/bin
+RUN npm install -g pm2@3.5.1
