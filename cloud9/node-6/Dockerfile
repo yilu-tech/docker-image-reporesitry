@@ -20,6 +20,11 @@ COPY --from=buildc9 /root/.c9 /root/.c9
 COPY --from=buildc9 /cloud9 /cloud9
 COPY --from=buildc9 /opt/node-v6 /opt/node-v6
 
+COPY cloud9/ecosystem.config.js /ecosystem.config.js
+
 ENV NODE_VERSION=v6.16.0
 ENV PATH=$PATH:/opt/node-v6/bin
+
 RUN npm install -g pm2@3.5.1
+
+CMD ["pm2-runtime", "start", "/ecosystem.config.js"]
