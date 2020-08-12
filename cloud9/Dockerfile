@@ -26,6 +26,8 @@ COPY --from=buildc9 /opt/node-v6 /opt/
 
 ENV NODE_VERSION=v12.18.3
 
+SHELL ["/bin/bash", "-c"]
+
 RUN wget https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz \
  && tar xf node-${NODE_VERSION}-linux-x64.tar.xz \
  && mv node-${NODE_VERSION}-linux-x64 node-v12 \
