@@ -1,7 +1,5 @@
 FROM yilutech/cloud9:node-6
 
-COPY sources.list /etc/apt/sources.list
-
 RUN apt-get update \
  && apt-get install -y git \
                        logrotate \
