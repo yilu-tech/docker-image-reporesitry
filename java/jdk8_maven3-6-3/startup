@@ -1,5 +1,0 @@
-#!/bin/bash
-
-source /root/.bash_profile
-
-pm2-runtime start /c9.json

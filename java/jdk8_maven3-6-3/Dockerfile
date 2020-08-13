@@ -1,19 +1,11 @@
-FROM yilutech/cloud9
+FROM yilutech/clou9:node-6
 
-COPY java/jdk8_maven3-6-3/startup java/jdk8_maven3-6-3/c9.json java/jdk8_maven3-6-3/settings.xml /
+COPY java/jdk8_maven3-6-3/settings.xml /
 
-RUN sed -i "s|8|9|g" /etc/apk/repositories \
- && apk update \
- && apk add openjdk8 \
+RUN apt-get update \
+ && apt-get install -y openjdk-8-jdk \
  && wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz -O - | tar -xz -C /usr/local/ \
- && mv -f /settings.xml /usr/local/apache-maven-3.6.3/conf/settings.xml \
- && chmod +x /startup \
- && sed -i "s|9|8|g" /etc/apk/repositories \
- && mv /root/.bashrc /root/.bash_profile \
- && echo -e "\nexport PATH=\$JAVA_HOME/bin:\$MAVEN_HOME/bin:\$PATH" >> /root/.bash_profile
+ && mv -f /settings.xml /usr/local/apache-maven-3.6.3/conf/settings.xml
 
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk JRE_HOME=$JAVA_HOME/jre CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib MAVEN_HOME=/usr/local/apache-maven-3.6.3
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin JRE_HOME=$JAVA_HOME/jre CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib MAVEN_HOME=/usr/local/apache-maven-3.6.3 PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin
 
-WORKDIR /apps
-
-CMD ["/startup"]
