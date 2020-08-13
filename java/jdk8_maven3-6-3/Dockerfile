@@ -1,4 +1,4 @@
-FROM yilutech/clou9:node-6
+FROM yilutech/cloud9:node-6
 
 COPY java/jdk8_maven3-6-3/settings.xml /
 
