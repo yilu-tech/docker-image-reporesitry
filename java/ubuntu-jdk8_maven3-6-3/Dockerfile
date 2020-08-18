@@ -1,6 +1,6 @@
 FROM yilutech/cloud9:node-6
 
-COPY java/jdk8_maven3-6-3/settings.xml /
+COPY java/ubuntu-jdk8_maven3-6-3/settings.xml /
 
 RUN apt-get update \
  && apt-get install -y openjdk-8-jdk git openssh-client \

@@ -1,6 +1,6 @@
 FROM yilutech/cloud9
 
-COPY java/jdk8_maven3-6-3/startup java/jdk8_maven3-6-3/c9.json java/jdk8_maven3-6-3/settings.xml /
+COPY java/alpine-jdk8_maven3-6-3/startup java/alpine-jdk8_maven3-6-3/c9.json java/alpine-jdk8_maven3-6-3/settings.xml /
 
 RUN sed -i "s|8|9|g" /etc/apk/repositories \
  && apk update \
