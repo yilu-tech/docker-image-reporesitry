@@ -10,6 +10,8 @@ RUN cd /opt \
  && rm node-${NODE_VERSION}-linux-x64.tar.xz \
  && npm install -g pm2@4.1.2  \
  && rm /opt/node-v6/bin/pm2* \
- && rm -rf /opt/node-v6/lib/node_modules/pm2
+ && rm -rf /opt/node-v6/lib/node_modules/pm2 \
+ && apt update && apt install -y git \
+ && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD ["pm2-runtime", "start", "/ecosystem.config.js"]
