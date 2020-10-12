@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apk -U add neovim python3-dev py3-pip git gcc g++
+apk -U add neovim python3-dev py3-pip gcc g++ nodejs
 
 pip install neovim
 
