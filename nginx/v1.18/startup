@@ -1,0 +1,5 @@
+#!/bin/ash
+
+crond
+
+nginx -g 'daemon off;'

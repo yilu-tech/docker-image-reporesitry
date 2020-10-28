@@ -13,6 +13,7 @@ RUN apt-get update \
                        php7.4-mysql \
                        php7.4-xml \
                        php7.4-zip \
+                       unzip \
 
  && wget https://getcomposer.org/composer-stable.phar -qO /usr/local/bin/composer \
  && chmod +x /usr/local/bin/composer \
