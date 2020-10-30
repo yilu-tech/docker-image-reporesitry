@@ -36,7 +36,7 @@ RUN apt-get update \
  && echo 'service php7.4-fpm start' >> /startup.sh \
  && echo "nginx -g 'daemon off;'" >> /startup.sh
 
-COPY yilu.zsh-theme /root/.oh-my-zsh/themes/yilu.zsh-theme
+COPY workbench/php7.4/yilu.zsh-theme /root/.oh-my-zsh/themes/yilu.zsh-theme
 WORKDIR /workspace
 EXPOSE 22 80
 
