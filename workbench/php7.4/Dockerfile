@@ -37,6 +37,7 @@ RUN apt-get update \
  && echo "nginx -g 'daemon off;'" >> /startup.sh
 
 COPY workbench/php7.4/yilu.zsh-theme /root/.oh-my-zsh/themes/yilu.zsh-theme
+COPY workbench/php7.4/nginx.conf /etc/nginx/nginx.conf
 WORKDIR /workspace
 EXPOSE 22 80
 
