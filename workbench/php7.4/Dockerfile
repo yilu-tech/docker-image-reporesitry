@@ -21,7 +21,7 @@ RUN apt-get update \
  && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc \
  && sed -i 's|ZSH_THEME="robbyrussell"|ZSH_THEME="yilu"|' /root/.zshrc \
 
- && wget https://getcomposer.org/composer-stable.phar -qO /usr/local/bin/composer \
+ && wget https://getcomposer.org/composer-1.phar -qO /usr/local/bin/composer \
  && chmod +x /usr/local/bin/composer \
  && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
  && sed -i "s|listen = \/run\/php\/php7.4-fpm.sock|listen = 0.0.0.0:9000|g" /etc/php/7.4/fpm/pool.d/www.conf \
