@@ -25,6 +25,8 @@ COPY cloud9/ecosystem.config.js /ecosystem.config.js
 ENV NODE_VERSION=v6.16.0
 ENV PATH=$PATH:/opt/node-v6/bin
 
-RUN npm install -g pm2@3.5.1
+RUN npm install -g pm2@3.5.1 \
+ && mkdir -p -m 700 /root/.ssh \
+ && echo "StrictHostKeyChecking=no" >> /root/.ssh/config
 
 CMD ["pm2-runtime", "start", "/ecosystem.config.js"]
