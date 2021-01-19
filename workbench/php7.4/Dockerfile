@@ -1,7 +1,7 @@
-FROM yilutech/ubuntu
+FROM yilutech/ubuntu:20.04
 
 RUN apt-get update \
- && apt-get install -y nginx git less cron vim zsh \
+ && apt-get install -y nginx git less cron vim \
                        php7.4 \
                        php7.4-fpm \
                        php7.4-bcmath \
@@ -17,9 +17,8 @@ RUN apt-get update \
                        openssh-server \
                        openssh-sftp-server \
 
- && git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
- && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc \
- && sed -i 's|ZSH_THEME="robbyrussell"|ZSH_THEME="yilu"|' /root/.zshrc \
+ && bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" \
+ && sed -i 's|OSH_THEME="font"|OSH_THEME="minimal"|' /root/.bashrc \
 
  && wget https://getcomposer.org/composer-1.phar -qO /usr/local/bin/composer \
  && chmod +x /usr/local/bin/composer \
@@ -27,7 +26,6 @@ RUN apt-get update \
  && sed -i "s|listen = \/run\/php\/php7.4-fpm.sock|listen = 0.0.0.0:9000|g" /etc/php/7.4/fpm/pool.d/www.conf \
 
  && cd /var/log/nginx && rm * && ln -s /dev/stdout access.log && ln -s /dev/stderr error.log \
- && sed -i '/*.conf;/a\    include /workspace/*/*/nginx.conf;' /etc/nginx/nginx.conf \
 
  && mkdir -p /workspace \
 
@@ -36,10 +34,9 @@ RUN apt-get update \
  && echo 'service php7.4-fpm start' >> /startup.sh \
  && echo "nginx -g 'daemon off;'" >> /startup.sh
 
-COPY workbench/php7.4/yilu.zsh-theme /root/.oh-my-zsh/themes/yilu.zsh-theme
 COPY workbench/php7.4/nginx.conf /etc/nginx/nginx.conf
 WORKDIR /workspace
-EXPOSE 22 80
+EXPOSE 22 80 9000
 
 CMD ["bash", "/startup.sh"]
 
