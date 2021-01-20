@@ -2,7 +2,7 @@ FROM alpine:edge
 
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
-RUN apk -U add perl git curl tzdata musl-locales nodejs the_silver_searcher nvim-0.4.4 py3-pip python3 \
+RUN apk -U add perl git curl tzdata musl-locales nodejs the_silver_searcher neovim-0.4.4 py3-pip python3 \
  && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \ 
 
  && git clone git://github.com/ohmybash/oh-my-bash.git $HOME/.oh-my-bash --depth=1 \
