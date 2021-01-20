@@ -1,5 +1,6 @@
 FROM yilutech/ubuntu:20.04
 
+SHELL ["bash", "-c"]
 RUN apt-get update \
  && apt-get install -y python3 python3-pip silversearcher-ag neovim \
  && mkdir -p $HOME/.pip/ \
