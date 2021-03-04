@@ -8,7 +8,7 @@ RUN apt-get update \
                        unzip \
                        php7.2 \
                        php7.2-fpm \
-                       php7.2-bcmatch \
+                       php7.2-bcmath \
                        php7.2-xml \
                        php7.2-gd \
                        php7.2-gmp \
