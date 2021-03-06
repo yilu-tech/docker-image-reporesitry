@@ -27,6 +27,7 @@ RUN apt-get update \
  && sed -i "s|weekly|daily|g" /etc/logrotate.d/php7.2-fpm \
  && sed -i "s|compress|nocompress|g" /etc/logrotate.d/php7.2-fpm \
  && sed -i "s|12|30|g" /etc/logrotate.d/php7.2-fpm \
+ && mkdir -p /run/php \
  && mkdir -m 700 -p /root/.ssh/ \
  && echo "StrictHostKeyChecking no" > /root/.ssh/config \
  && apt-get autoremove -y software-properties-common
