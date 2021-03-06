@@ -5,6 +5,7 @@ RUN apt-get update \
  && add-apt-repository ppa:ondrej/php \
  && apt-get install -y git \
                        logrotate \
+                       cron \
                        unzip \
                        php7.2 \
                        php7.2-fpm \
