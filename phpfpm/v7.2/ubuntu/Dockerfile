@@ -19,7 +19,7 @@ RUN apt-get update \
                        php7.2-tokenizer \
                        php7.2-zip \
       
- && wget https://getcomposer.org/composer-stable.phar -qO /usr/local/bin/composer \
+ && wget https://getcomposer.org/composer-1.phar -qO /usr/local/bin/composer \
  && chmod +x /usr/local/bin/composer \
  && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
  && sed -i "s|;daemonize = yes|daemonize = no|g" /etc/php/7.2/fpm/php-fpm.conf \
