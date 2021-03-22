@@ -12,6 +12,7 @@ RUN apt-get update \
                        php7.4-mysql \
                        php7.4-xml \
                        php7.4-zip \
+                       php-xdebug \
                        php-redis \
                        unzip \
                        openssh-server \
