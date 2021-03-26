@@ -1,7 +1,7 @@
 FROM yilutech/ubuntu:20.04
 
 RUN apt-get update \
- && apt-get install -y software-properties-common
+ && apt-get install -y software-properties-common \
  && add-apt-repository ppa:ondrej/php \
  && apt-get install -y nginx git less cron vim \
                        php8.0-xdebug 
@@ -29,6 +29,7 @@ RUN apt-get update \
  && sed -i "s|listen = \/run\/php\/php8.0-fpm.sock|listen = 0.0.0.0:9000|g" /etc/php/8.0/fpm/pool.d/www.conf \
 
  && cd /var/log/nginx && rm * && ln -s /dev/stdout access.log && ln -s /dev/stderr error.log \
+ && apt-get autoremove -y software-properties-common \
 
  && mkdir -p /workspace \
 
