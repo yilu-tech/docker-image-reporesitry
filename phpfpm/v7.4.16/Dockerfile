@@ -23,7 +23,7 @@ RUN apt-get update \
  && wget https://github.com/spiral/roadrunner/releases/download/v2.0.0-RC.2/roadrunner-2.0.0-RC.2-linux-amd64.tar.gz \
  && tar zxf roadrunner-2.0.0-RC.2-linux-amd64.tar.gz \
  && mv roadrunner-2.0.0-RC.2-linux-amd64/rr /usr/local/bin/ \
- && rm roadrunner-2.0.0-RC.2-linux-amd64* \
+ && rm -rf roadrunner-2.0.0-RC.2-linux-amd64* \
 
  && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
  && sed -i "s|;daemonize = yes|daemonize = no|g" /etc/php/7.4/fpm/php-fpm.conf \
