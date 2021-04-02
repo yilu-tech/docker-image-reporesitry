@@ -4,6 +4,7 @@ RUN apt-get update \
  && apt-get install -y nginx \
                        cron \
                        less \
+                       rsync \
                        openssh-server \
                        openssh-sftp-server \
  
