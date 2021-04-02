@@ -20,7 +20,7 @@ RUN apt-get update \
 
  && mkdir -p /apps
 
-COPY nginx-php/nginx.conf /root/nginx.conf
+COPY nginx-php/nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /apps
 EXPOSE 22 88 80 9000
