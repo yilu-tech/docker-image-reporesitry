@@ -6,7 +6,7 @@ RUN apt-get update \
  && rm -rf /etc/nginx/sites-* \
 
  && echo '#!/bin/bash' > /startup.sh \
- && echo 'pm2 start /ecosystem.config.js'
+ && echo 'pm2 start /ecosystem.config.js' \
  && echo "nginx -g 'daemon off;'" >> /startup.sh \
 
  && mkdir -p /apps
