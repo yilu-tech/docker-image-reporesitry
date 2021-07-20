@@ -12,6 +12,7 @@ RUN apt-get update  \
                        php8.0-mbstring \
                        php8.0-swoole \
                        php8.0-zip \
+                       php8.0-redis \
 
  && curl --output /usr/local/bin/composer https://getcomposer.org/download/latest-2.x/composer.phar \
  && chmod +x /usr/local/bin/composer \
