@@ -1,5 +1,8 @@
 FROM yilutech/ubuntu:20.04
 
+ENV NODE_VERSION=v14.16.1
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/node-v12/bin
+
 RUN apt-get update \
  && apt-get install -y git \
                        logrotate \
@@ -14,6 +17,13 @@ RUN apt-get update \
                        php7.4-xml \
                        php7.4-zip \
                        unzip \
+
+ && cd /opt \
+ && wget https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz -q \
+ && tar xf node-${NODE_VERSION}-linux-x64.tar.xz \
+ && mv node-${NODE_VERSION}-linux-x64 node-v12 \
+ && rm node-${NODE_VERSION}-linux-x64.tar.xz \
+ && npm install -g pm2@4.1.2  \
 
  && wget https://getcomposer.org/composer-1.phar -qO /usr/local/bin/composer \
  && chmod +x /usr/local/bin/composer \
