@@ -4,6 +4,8 @@ RUN apt-get update \
  && apt-get install -y software-properties-common \
  && add-apt-repository ppa:ondrej/php \
  && apt-get install -y nginx git less cron vim \
+                       php-pear \
+                       php8.0-dev \
                        php8.0-xdebug \
                        php8.0-bcmath \
                        php8.0-curl \
