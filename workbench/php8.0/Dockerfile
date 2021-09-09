@@ -29,7 +29,7 @@ RUN apt-get update \
  && bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" \
  && sed -i 's|OSH_THEME="font"|OSH_THEME="minimal"|' /root/.bashrc \
 
- && wget https://getcomposer.org/composer-1.phar -qO /usr/local/bin/composer \
+ && wget https://getcomposer.org/download/latest-2.x/composer.phar -qO /usr/local/bin/composer \
  && chmod +x /usr/local/bin/composer \
  && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
  && sed -i "s|listen = \/run\/php\/php8.0-fpm.sock|listen = 0.0.0.0:9000|g" /etc/php/8.0/fpm/pool.d/www.conf \
