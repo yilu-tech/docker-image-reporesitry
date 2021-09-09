@@ -23,6 +23,8 @@ RUN apt-get update \
                        openssh-sftp-server \
 
  && pecl install swoole \
+ && echo "extension=swoole.so" > /etc/php/8.0/mods-available/swoole.ini \
+ && ln -s /etc/php/8.0/mods-available/swoole.ini /etc/php/8.0/cli/conf.d/ \
 
  && bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" \
  && sed -i 's|OSH_THEME="font"|OSH_THEME="minimal"|' /root/.bashrc \
