@@ -22,6 +22,8 @@ RUN apt-get update \
                        openssh-server \
                        openssh-sftp-server \
 
+ && pecl install swoole \
+
  && bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" \
  && sed -i 's|OSH_THEME="font"|OSH_THEME="minimal"|' /root/.bashrc \
 
